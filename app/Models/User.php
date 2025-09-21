@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Role;
 use App\Models\Department;
+use App\Models\Task;
 
 class User extends Authenticatable
 {
@@ -62,5 +63,21 @@ class User extends Authenticatable
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    /**
+     * Get the tasks assigned to the user.
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'assignee_id');
+    }
+
+    /**
+     * Get the tasks created by the user.
+     */
+    public function createdTasks()
+    {
+        return $this->hasMany(Task::class, 'creator_id');
     }
 }

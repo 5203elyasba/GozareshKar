@@ -21,14 +21,14 @@
                         <!-- Start Time -->
                         <div class="mt-4">
                             <x-input-label for="start_time" :value="__('Start Time')" />
-                            <x-text-input id="start_time" class="block mt-1 w-full" type="text" name="start_time" :value="old('start_time')" placeholder="HH:MM" required />
+                            <x-text-input id="start_time" class="block mt-1 w-full" type="text" name="start_time" :value="old('start_time')" placeholder="HH:MM" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" title="Please enter time in 24-hour format (e.g., 14:30)." />
                             <x-input-error :messages="$errors->get('start_time')" class="mt-2" />
                         </div>
 
                         <!-- End Time -->
                         <div class="mt-4">
                             <x-input-label for="end_time" :value="__('End Time')" />
-                            <x-text-input id="end_time" class="block mt-1 w-full" type="text" name="end_time" :value="old('end_time')" placeholder="HH:MM" />
+                            <x-text-input id="end_time" class="block mt-1 w-full" type="text" name="end_time" :value="old('end_time')" placeholder="HH:MM" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" title="Please enter time in 24-hour format (e.g., 14:30)." />
                             <x-input-error :messages="$errors->get('end_time')" class="mt-2" />
                         </div>
 

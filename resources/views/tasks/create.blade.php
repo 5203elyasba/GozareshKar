@@ -52,7 +52,7 @@
                         <!-- Due Date -->
                         <div class="mt-4">
                             <x-input-label for="due_date" :value="__('Due Date')" />
-                            <x-text-input id="due_date" class="block mt-1 w-full" type="date" name="due_date" :value="old('due_date')" />
+                            <x-text-input id="due_date" data-jdp class="block mt-1 w-full" type="text" name="due_date" :value="old('due_date')" />
                             <x-input-error :messages="$errors->get('due_date')" class="mt-2" />
                         </div>
 
@@ -67,4 +67,16 @@
             </div>
         </div>
     </div>
+
+@push('styles')
+<link rel="stylesheet" href="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
+@endpush
+
+@push('scripts')
+<script type="text/javascript" src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
+<script type="text/javascript">
+    jalaliDatepicker.startWatch();
+</script>
+@endpush
+
 </x-app-layout>

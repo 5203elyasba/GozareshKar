@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Morilog\Jalali\Jalalian;
 
 class TaskController extends Controller
 {
@@ -32,6 +34,14 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+        // Convert Jalali date to Gregorian before validation
+        if ($request->has('due_date') && $request->filled('due_date')) {
+            $jalaliDate = $request->input('due_date');
+            // The date picker format is YYYY/MM/DD, so we use 'Y/m/d'
+            $gregorianDate = Jalalian::fromFormat('Y/m/d', $jalaliDate)->toCarbon();
+            $request->merge(['due_date' => $gregorianDate]);
+        }
+
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',

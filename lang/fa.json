@@ -15,6 +15,7 @@
     "Create New Task": "ایجاد وظیفه جدید",
     "No tasks have been assigned to you.": "هیچ وظیفه‌ای برای شما ثبت نشده است.",
     "Title": "عنوان",
+    "Description": "توضیحات",
     "Status": "وضعیت",
     "Priority": "اولویت",
     "Due Date": "تاریخ سررسید",
@@ -30,5 +31,8 @@
     "Create New User": "ایجاد کاربر جدید",
     "Role": "نقش",
     "Department": "دپارتمان",
-    "Edit": "ویرایش"
+    "Edit": "ویرایش",
+    "Assign To": "اختصاص به",
+    "Select a user": "یک کاربر را انتخاب کنید",
+    "Create Task": "ایجاد وظیفه"
 }

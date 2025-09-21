@@ -25,5 +25,10 @@
     "completed": "تکمیل شده",
     "low": "پایین",
     "medium": "متوسط",
-    "high": "بالا"
+    "high": "بالا",
+    "Manage Users": "مدیریت کاربران",
+    "Create New User": "ایجاد کاربر جدید",
+    "Role": "نقش",
+    "Department": "دپارتمان",
+    "Edit": "ویرایش"
 }

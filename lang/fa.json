@@ -35,9 +35,14 @@
     "Assign To": "اختصاص به",
     "Select a user": "یک کاربر را انتخاب کنید",
     "Create Task": "ایجاد وظیفه",
-    "Time Clock": "ساعت زنی",
-    "Clock In": "اعلام ورود",
-    "Clock Out": "اعلام خروج",
-    "Start Break": "شروع استراحت",
-    "End Break": "پایان استراحت"
+    "Daily Reports": "گزارش‌های روزانه",
+    "Submit Today's Report": "ثبت گزارش امروز",
+    "No reports submitted yet.": "هنوز هیچ گزارشی ثبت نشده است.",
+    "Report Date": "تاریخ گزارش",
+    "Start Time": "ساعت شروع",
+    "End Time": "ساعت پایان",
+    "Fixed Tasks": "کارهای ثابت",
+    "This section will be implemented soon.": "این بخش به زودی پیاده‌سازی خواهد شد.",
+    "Description of Other Tasks": "شرح کارهای دیگر",
+    "Submit Report": "ثبت گزارش"
 }

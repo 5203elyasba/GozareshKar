@@ -11,11 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('time_logs', function (Blueprint $table) {
+        Schema::create('daily_reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->enum('type', ['clock_in', 'clock_out', 'start_break', 'end_break']);
-            $table->timestamp('log_time');
+            $table->date('report_date');
+            $table->time('start_time');
+            $table->time('end_time')->nullable();
+            $table->json('fixed_tasks')->nullable();
+            $table->text('variable_tasks')->nullable();
+            $table->timestamps();
+
+            $table->unique(['user_id', 'report_date']);
         });
     }
 
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('time_logs');
+        Schema::dropIfExists('daily_reports');
     }
 };

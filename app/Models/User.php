@@ -80,4 +80,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class, 'creator_id');
     }
+
+    /**
+     * Get the daily reports for the user.
+     */
+    public function dailyReports()
+    {
+        return $this->hasMany(DailyReport::class);
+    }
 }

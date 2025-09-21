@@ -18,8 +18,8 @@
                     <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.*')">
                         {{ __('Tasks List') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('timelog.index')" :active="request()->routeIs('timelog.index')">
-                        {{ __('Time Clock') }}
+                    <x-nav-link :href="route('daily-reports.index')" :active="request()->routeIs('daily-reports.*')">
+                        {{ __('Daily Reports') }}
                     </x-nav-link>
                     @if(Auth::user()->role && Auth::user()->role->name == 'admin')
                         <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
@@ -84,8 +84,8 @@
             <x-responsive-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.*')">
                 {{ __('Tasks List') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('timelog.index')" :active="request()->routeIs('timelog.index')">
-                {{ __('Time Clock') }}
+            <x-responsive-nav-link :href="route('daily-reports.index')" :active="request()->routeIs('daily-reports.*')">
+                {{ __('Daily Reports') }}
             </x-responsive-nav-link>
             @if(Auth::user()->role && Auth::user()->role->name == 'admin')
                 <x-responsive-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">

@@ -21,14 +21,14 @@
                         <!-- Start Time -->
                         <div class="mt-4">
                             <x-input-label for="start_time" :value="__('Start Time')" />
-                            <x-text-input id="start_time" class="block mt-1 w-full" type="time" name="start_time" :value="old('start_time')" required />
+                            <x-text-input id="start_time" class="block mt-1 w-full" type="text" name="start_time" :value="old('start_time')" placeholder="HH:MM" required />
                             <x-input-error :messages="$errors->get('start_time')" class="mt-2" />
                         </div>
 
                         <!-- End Time -->
                         <div class="mt-4">
                             <x-input-label for="end_time" :value="__('End Time')" />
-                            <x-text-input id="end_time" class="block mt-1 w-full" type="time" name="end_time" :value="old('end_time')" />
+                            <x-text-input id="end_time" class="block mt-1 w-full" type="text" name="end_time" :value="old('end_time')" placeholder="HH:MM" />
                             <x-input-error :messages="$errors->get('end_time')" class="mt-2" />
                         </div>
 
@@ -36,7 +36,6 @@
                         <div class="mt-4">
                             <h3 class="font-semibold">{{ __('Fixed Tasks') }}</h3>
                             <div class="mt-2 text-gray-600 text-sm">
-                                {{-- In the future, a checklist of predefined tasks will appear here. --}}
                                 <p>{{ __('This section will be implemented soon.') }}</p>
                             </div>
                         </div>

@@ -9,6 +9,8 @@ class Department extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     /**
      * Get the users associated with the department.
      */

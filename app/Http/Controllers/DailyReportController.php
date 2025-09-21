@@ -62,7 +62,8 @@ class DailyReportController extends Controller
      */
     public function show(DailyReport $dailyReport)
     {
-        //
+        $this->authorize('view', $dailyReport);
+        return view('daily-reports.show', ['report' => $dailyReport]);
     }
 
     /**
@@ -70,7 +71,8 @@ class DailyReportController extends Controller
      */
     public function edit(DailyReport $dailyReport)
     {
-        //
+        $this->authorize('update', $dailyReport);
+        return view('daily-reports.edit', ['report' => $dailyReport]);
     }
 
     /**
@@ -78,7 +80,17 @@ class DailyReportController extends Controller
      */
     public function update(Request $request, DailyReport $dailyReport)
     {
-        //
+        $this->authorize('update', $dailyReport);
+
+        $validatedData = $request->validate([
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => 'nullable|date_format:H:i|after:start_time',
+            'variable_tasks' => 'nullable|string',
+        ]);
+
+        $dailyReport->update($validatedData);
+
+        return redirect()->route('daily-reports.index')->with('success', 'Report updated successfully.');
     }
 
     /**
@@ -86,6 +98,9 @@ class DailyReportController extends Controller
      */
     public function destroy(DailyReport $dailyReport)
     {
-        //
+        $this->authorize('delete', $dailyReport);
+        $dailyReport->delete();
+
+        return redirect()->route('daily-reports.index')->with('success', 'Report deleted successfully.');
     }
 }

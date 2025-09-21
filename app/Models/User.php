@@ -88,4 +88,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(DailyReport::class);
     }
+
+    /**
+     * Check if the user has the admin role.
+     *
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role && $this->role->name === 'admin';
+    }
 }

@@ -32,7 +32,25 @@
                                     <tr class="block sm:table-row border-b sm:border-none mb-4 sm:mb-0">
                                         <td class="block sm:table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" data-label="{{ __('Title') }}">{{ $task->title }}</td>
                                         <td class="block sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500" data-label="{{ __('Status') }}">{{ __($task->status) }}</td>
-                                        <td class="block sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500" data-label="{{ __('Priority') }}">{{ __($task->priority) }}</td>
+                                        <td class="block sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500" data-label="{{ __('Priority') }}">
+                                            @php
+                                                $priorityClass = '';
+                                                switch ($task->priority) {
+                                                    case 'high':
+                                                        $priorityClass = 'bg-red-100 text-red-800';
+                                                        break;
+                                                    case 'medium':
+                                                        $priorityClass = 'bg-yellow-100 text-yellow-800';
+                                                        break;
+                                                    case 'low':
+                                                        $priorityClass = 'bg-green-100 text-green-800';
+                                                        break;
+                                                }
+                                            @endphp
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $priorityClass }}">
+                                                {{ __($task->priority) }}
+                                            </span>
+                                        </td>
                                         <td class="block sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500" data-label="{{ __('Due Date') }}">{{ $task->due_date ? jdate($task->due_date)->format('Y/m/d') : __('N/A') }}</td>
                                         <td class="block sm:table-cell px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a href="{{ route('tasks.show', $task) }}" class="text-indigo-600 hover:text-indigo-900">{{ __('View') }}</a>

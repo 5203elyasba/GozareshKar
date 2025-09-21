@@ -61,7 +61,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        $this->authorize('view', $task);
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -69,7 +70,9 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        $this->authorize('update', $task);
+        $users = User::all();
+        return view('tasks.edit', compact('task', 'users'));
     }
 
     /**
@@ -77,7 +80,26 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $this->authorize('update', $task);
+
+        // Convert Jalali date to Gregorian before validation
+        if ($request->has('due_date') && $request->filled('due_date')) {
+            $jalaliDate = $request->input('due_date');
+            $gregorianDate = Jalalian::fromFormat('Y/m/d', $jalaliDate)->toCarbon();
+            $request->merge(['due_date' => $gregorianDate]);
+        }
+
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'assignee_id' => 'nullable|exists:users,id',
+            'priority' => 'required|in:low,medium,high',
+            'due_date' => 'nullable|date',
+        ]);
+
+        $task->update($validatedData);
+
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
     }
 
     /**

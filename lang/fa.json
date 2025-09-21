@@ -34,5 +34,10 @@
     "Edit": "ویرایش",
     "Assign To": "اختصاص به",
     "Select a user": "یک کاربر را انتخاب کنید",
-    "Create Task": "ایجاد وظیفه"
+    "Create Task": "ایجاد وظیفه",
+    "Time Clock": "ساعت زنی",
+    "Clock In": "اعلام ورود",
+    "Clock Out": "اعلام خروج",
+    "Start Break": "شروع استراحت",
+    "End Break": "پایان استراحت"
 }

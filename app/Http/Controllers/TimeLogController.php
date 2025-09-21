@@ -9,6 +9,11 @@ use Carbon\Carbon;
 
 class TimeLogController extends Controller
 {
+    public function index()
+    {
+        return view('timelog.index');
+    }
+
     public function clockIn()
     {
         return $this->logTime('clock_in');

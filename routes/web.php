@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('tasks', TaskController::class);
 
     Route::prefix('time-log')->name('timelog.')->group(function () {
+        Route::get('/', [TimeLogController::class, 'index'])->name('index');
         Route::post('/clock-in', [TimeLogController::class, 'clockIn'])->name('clockIn');
         Route::post('/clock-out', [TimeLogController::class, 'clockOut'])->name('clockOut');
         Route::post('/start-break', [TimeLogController::class, 'startBreak'])->name('startBreak');
